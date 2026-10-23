@@ -33,15 +33,16 @@
     gap: 8px;
     margin-bottom: 20px;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .tab-btn {
-    padding: 10px 24px;
+    padding: 10px 20px;
     border: none;
     border-radius: 25px;
     background-color: #dcedc8;
     color: #33691e;
-    font-size: 1em;
+    font-size: 0.95em;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
@@ -88,6 +89,16 @@
 
   .karte p.notiz { margin-top: 8px; }
 
+  .gesundheit {
+    background-color: #ffebee;
+    border-left: 4px solid #e53935;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-top: 10px;
+    font-size: 0.92em;
+    color: #6b1a1a;
+  }
+
   .chip {
     display: inline-block;
     background-color: #e8f5e9;
@@ -97,6 +108,7 @@
     font-size: 0.85em;
     font-weight: 600;
     margin-right: 6px;
+    margin-bottom: 4px;
   }
 
   .chip.warnung {
@@ -107,6 +119,11 @@
   .chip.hinweis {
     background-color: #e3f2fd;
     color: #1565c0;
+  }
+
+  .chip.gesundheit {
+    background-color: #ffebee;
+    color: #c62828;
   }
 
   /* Futter-Tabelle */
@@ -183,6 +200,15 @@
     font-size: 0.88em;
   }
 
+  /* Beschäftigung-Listen */
+  .beschaeftigung-liste {
+    margin-top: 10px;
+  }
+
+  .beschaeftigung-liste li {
+    margin: 6px 0 6px 20px;
+  }
+
   footer {
     text-align: center;
     font-size: 0.8em;
@@ -207,6 +233,7 @@
 <div class="tabs">
   <button class="tab-btn aktiv" onclick="tabWechseln('ratten', this)">Meine Ratten</button>
   <button class="tab-btn" onclick="tabWechseln('futter', this)">Fütterung</button>
+  <button class="tab-btn" onclick="tabWechseln('freilauf', this)">Freilauf &amp; Beschäftigung</button>
 </div>
 
 <!-- ================= TAB 1: MEINE RATTEN ================= -->
@@ -219,11 +246,16 @@
     <div class="details">
       <span class="chip">♂ männlich</span>
       <span class="chip">1 Jahr</span>
-      <span class="chip">Albino</span>
       <span class="chip hinweis">Käfigpartner: Gerti</span>
+      <span class="chip gesundheit">🤧 Schnupfen</span>
     </div>
     <p class="notiz">Weißes Fell, rosa/rote Augen und Ohren. Hat ein Loch im Ohr.
     Wird gemeinsam mit Gerti gehalten und beißt normalerweise nicht.</p>
+    <div class="gesundheit">
+      🤧 <strong>Aktuell krank:</strong> Kurti hat Schnupfen – vermutlich verursacht durch
+      Mykoplasmen. Atmung, Nasenausfluss und Verhalten beobachten und bei
+      Verschlechterung tierärztlich abklären lassen.
+    </div>
   </div>
 
   <!-- Gerti -->
@@ -236,7 +268,8 @@
       <span class="chip hinweis">Käfigpartnerin: Kurti</span>
     </div>
     <p class="notiz">Die Zutraulichste und gleichzeitig Vorsichtigste der Gruppe.
-    Wird gemeinsam mit Kurti gehalten und beißt normalerweise nicht.</p>
+    Wird gemeinsam mit Kurti gehalten und beißt normalerweise nicht.
+    Liebt Joghurt als Leckerbissen. 🥛</p>
   </div>
 
   <!-- Schraube & Kabelbrand -->
@@ -244,13 +277,16 @@
     <img class="rattenfoto" src="bilder/schraube-kabelbrand.jpeg" alt="Schraube und Kabelbrand">
     <h2>Schraube &amp; Kabelbrand</h2>
     <div class="details">
+      <span class="chip">2 Jahre</span>
       <span class="chip warnung">⚠️ bissig</span>
       <span class="chip">lebhaft</span>
       <span class="chip">neugierig</span>
+      <span class="chip hinweis">Käfigpartner: gemeinsames Duo</span>
     </div>
     <p class="notiz">Die beiden sind ein eingeschworenes Team – auf dem gemeinsamen Foto
     sind sie kaum auseinanderzuhalten. 🐀🐀 Beim Umgang Vorsicht walten lassen:
-    Zwicken gehört zu ihren Lieblingsbeschäftigungen. Wer trotzdem rangeht,
+    Zwicken und Knabbern an Füßen gehört zu ihren Lieblingsbeschäftigungen –
+    beim Reinlangen also am besten Socken tragen! Wer trotzdem rangeht,
     wird mit Neugier und Tatendrang belohnt.</p>
   </div>
 
@@ -317,7 +353,7 @@
         <li><strong>Erbsen, Mais</strong> <span class="warum">– stärke-/zuckerreich</span></li>
         <li><strong>Brokkoli, Kohlrabi, Blumenkohl</strong> <span class="warum">– in kleinen Mengen gut, sonst blähend</span></li>
         <li><strong>Gekochtes Ei</strong> <span class="warum">– Tierprotein, nur gelegentlich</span></li>
-        <li><strong>Naturjoghurt, Quark</strong> <span class="warum">– laktosearm, dennoch sparsam</span></li>
+        <li><strong>Naturjoghurt, Quark</strong> <span class="warum">– laktosearm, dennoch sparsam (Gertis Favorit!)</span></li>
         <li><strong>Trockenbrot / Knäckebrot</strong> <span class="warum">– ungewürzt, ohne Salz</span></li>
       </ul>
     </div>
@@ -342,6 +378,49 @@
       🩺 Faustregel: Snacks machen maximal ca. 10–15 % der Tagesration aus. Neues Futter
       immer zuerst in kleiner Menge anbieten. Im Zweifel gilt: Was Menschen als gesund
       verarbeitet kaufen (gewürzt, gesüßt, gesalzen), gehört nicht in den Rattenmägen.
+    </div>
+  </div>
+
+</div>
+
+<!-- ================= TAB 3: FREILAUF & BESCHÄFTIGUNG ================= -->
+<div id="freilauf" class="tab-inhalt" style="display:none;">
+
+  <div class="karte">
+    <h2>🏃 Freilauf</h2>
+    <p>Ratten sind neugierige, bewegungsfreudige Tiere – täglicher Freilauf ist Pflicht:</p>
+
+    <ul class="beschaeftigung-liste">
+      <li><strong>Täglich mindestens 1 Stunde</strong> Freilauf außerhalb des Käfigs</li>
+      <li>⚠️ <strong>Kabel sichern!</strong> Strom- und Ladekabel mit Kabelkanälen abdecken oder außer Reichweite hängen – Kabel sind attraktives Nagematerial und lebengefährlich (Stromschlag, Kurzschluss)</li>
+      <li>Lücken und Verstecke abdichten: Ratten passen durch winzige Öffnungen – hinter Schränken, unter Türen, in Wandlöchern</li>
+      <li>Gefahrenquellen entfernen: Giftpflanzen, herunterfallende Gegenstände, offene Wassergefäße, andere Haustiere</li>
+      <li>Freilauf immer beaufsichtigen – nie unbeaufsichtigt lassen</li>
+    </ul>
+
+    <div class="hinweis">
+      🤧 <strong>Hinweis während Kurtis Schnupfen:</strong> Zugluft und große Temperatursprünge
+      vermeiden – idealerweise Freilauf in einem warmen, zugfreien Raum.
+    </div>
+  </div>
+
+  <div class="karte">
+    <h2>🧸 Spielzeug &amp; Beschäftigung</h2>
+    <p>Beschäftigung ist für rattengerechte Haltung genauso wichtig wie Futter und Platz:</p>
+
+    <ul class="beschaeftigung-liste">
+      <li><strong>Spielzeug regelmäßig wechseln/rotieren</strong> – bleibt alles immer gleich, wird es schnell langweilig</li>
+      <li><strong>Futtersuche &amp; Verstecken</strong> – Snacks in Grabkisten, unter Papier oder in Leckerli-Bällen auslegen, statt in den Napf zu legen</li>
+      <li><strong>Grabkiste</strong> – mit Einstreu gefüllte Kiste zum Wühlen und Buddeln (auch als Futtersuche nutzbar)</li>
+      <li><strong>Klettermöglichkeiten</strong> – Äste, Hängematten, Ebenen, Seile (ungiftig &amp; unbehandelt)</li>
+      <li><strong>Nagematerial</strong> – unbehandelte Holzäste, Kartons, Klopapierrollen; hält die Zähne in Form</li>
+      <li><strong>Höhlen &amp; Hängematten</strong> – Rückzugsorte zum Verstecken und Schlafen</li>
+      <li>Besonders für <strong>übergewichtige Tiere</strong>: Futter weit verteilen und „erarbeiten" lassen – Bewegung statt Napf 🙂</li>
+    </ul>
+
+    <div class="hinweis">
+      ℹ️ Leere Kartons, Papiertüten und zerknülltes Papier sind oft die größten Hits –
+      teures Zubehör ist nicht nötig, Fantasie schon!
     </div>
   </div>
 
