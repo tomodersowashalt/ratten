@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haltung meiner Ratten</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f9f4;
+    color: #2d3a2d;
+    line-height: 1.6;
+    padding: 20px;
+  }
+
+  header {
+    text-align: center;
+    padding: 25px 10px;
+    background: linear-gradient(135deg, #7fb069, #a3c9a8);
+    border-radius: 12px;
+    margin-bottom: 25px;
+    color: #fff;
+  }
+
+  header h1 { font-size: 1.8em; }
+  header p { opacity: 0.9; font-size: 0.95em; }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+
+  .tab-btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 25px;
+    background-color: #dcedc8;
+    color: #33691e;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .tab-btn:hover { background-color: #c5e1a5; }
+
+  .tab-btn.aktiv {
+    background-color: #558b2f;
+    color: #fff;
+  }
+
+  /* Karten */
+  .karte {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(85, 139, 47, 0.15);
+    padding: 20px;
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .karte img.rattenfoto {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 15px;
+    border: 3px solid #aed581;
+  }
+
+  .karte h2 {
+    color: #558b2f;
+    margin-bottom: 5px;
+  }
+
+  .karte .details {
+    font-size: 0.95em;
+    color: #5a6b5a;
+    margin-bottom: 12px;
+  }
+
+  .karte p.notiz { margin-top: 8px; }
+
+  .chip {
+    display: inline-block;
+    background-color: #e8f5e9;
+    color: #33691e;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-right: 6px;
+  }
+
+  /* Platzhalter-Bild */
+  .bild-platzhalter {
+    background-color: #eef7ee;
+    border: 2px dashed #a5d6a7;
+    border-radius: 10px;
+    padding: 40px 15px;
+    text-align: center;
+    color: #6b8e6b;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+  }
+
+  /* Futter-Tabelle */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.97em;
+  }
+
+  th, td {
+    border: 1px solid #c5e1a5;
+    padding: 10px 12px;
+    text-align: left;
+  }
+
+  th { background-color: #dcedc8; color: #33691e; }
+
+  tr:nth-child(even) { background-color: #f9fdf9; }
+
+  .hinweis {
+    background-color: #fff8e1;
+    border-left: 4px solid #ffca28;
+    border-radius: 6px;
+    padding: 12px 15px;
+    margin-top: 18px;
+    font-size: 0.92em;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 0.8em;
+    color: #8aa38a;
+    margin-top: 35px;
+  }
+
+  @media (max-width: 500px) {
+    .tabs { flex-direction: column; }
+    .tab-btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🐀 Haltung meiner Ratten</h1>
+  <p>Pflegeübersicht &amp; Fütterung – Stand Oktober 2026</p>
+</header>
+
+<!-- Tab-Navigation -->
+<div class="tabs">
+  <button class="tab-btn aktiv" onclick="tabWechseln('ratten', this)">Meine Ratten</button>
+  <button class="tab-btn" onclick="tabWechseln('futter', this)">Fütterung</button>
+</div>
+
+<!-- ================= TAB 1: MEINE RATTEN ================= -->
+<div id="ratten" class="tab-inhalt">
+
+  <!-- Kurti -->
+  <div class="karte">
+    <img class="rattenfoto" src="bilder/kurti.jpg" alt="Kurti beim Fressen am Futternapf">
+    <h2>Kurti</h2>
+    <div class="details">
+      <span class="chip">♂ männlich</span>
+      <span class="chip">Albino</span>
+    </div>
+    <p class="notiz">Weißes Fell, rosa/rote Augen und Ohren. Frisst gerne am Futternapf.</p>
+  </div>
+
+  <!-- Gerti -->
+  <div class="karte">
+    <!-- ⚠️ BILDPLATZHALTER: Foto hier einfügen, sobald vorhanden.
+         Einfach die folgende Zeile durch ersetzen:
+         <img class="rattenfoto" src="bilder/gerti.jpg" alt="Gerti"> -->
+    <div class="bild-platzhalter">📷 Foto von Gerti folgt<br><small>bilder/gerti.jpg</small></div>
+    <h2>Gerti</h2>
+    <div class="details">
+      <span class="chip">♀ weiblich</span>
+      <span class="chip">2 Jahre</span>
+    </div>
+    <p class="notiz">⚠️ Hier Notizen zu Gerti ergänzen: Charakter, Herkunft, Besonderheiten …</p>
+  </div>
+
+</div>
+
+<!-- ================= TAB 2: FÜTTERUNG ================= -->
+<div id="futter" class="tab-inhalt" style="display:none;">
+
+  <div class="karte">
+    <h2>Tagesration Trockenfutter</h2>
+    <p>Getreudemix mit Vitaminergänzung – Mengen pro Tier:</p>
+
+    <table>
+      <tr>
+        <th>Geschlecht</th>
+        <th>Gewicht (ca.)</th>
+        <th>Menge pro Tag</th>
+      </tr>
+      <tr>
+        <td>♂ Bock</td>
+        <td>500–600 g</td>
+        <td><strong>40–60 g</strong></td>
+      </tr>
+      <tr>
+        <td>♀ Weibchen</td>
+        <td>350–450 g</td>
+        <td><strong>30–50 g</strong></td>
+      </tr>
+    </table>
+
+    <div class="hinweis">
+      ℹ️ Die Mengen sind Richtwerte – je nach Aktivität, Alter und individuellem Bedarf anpassen.
+      Übergewichtige Tiere (wie der 950-g-Kerl 😉) eher am unteren Rand der Spanne füttern
+      und über Beschäftigung/Futterverstecke mehr Bewegung schaffen.
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Meine Rattenhaltung · Stand: Oktober 2026 · 💚
+</footer>
+
+<script>
+function tabWechseln(tabId, button) {
+  // Alle Inhalte verstecken
+  var inhalte = document.querySelectorAll('.tab-inhalt');
+  for (var i = 0; i < inhalte.length; i++) {
+    inhalte[i].style.display = 'none';
+  }
+  // Alle Buttons deaktivieren
+  var buttons = document.querySelectorAll('.tab-btn');
+  for (var j = 0; j < buttons.length; j++) {
+    buttons[j].classList.remove('aktiv');
+  }
+  // Gewähltes Tab anzeigen
+  document.getElementById(tabId).style.display = 'block';
+  button.classList.add('aktiv');
+}
+</script>
+
+</body>
+</html>
